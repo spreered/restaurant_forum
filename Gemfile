@@ -38,7 +38,7 @@ gem 'carrierwave'
 gem 'ffaker'
 gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.7'
-
+gem 'jquery-rails'
 
 
 group :development, :test do
