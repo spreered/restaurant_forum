@@ -9,10 +9,6 @@
   </head>
 
   <body>
-    
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,8 +37,20 @@
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
-
-
+    <% if flash[:notice] %>
+    <div class="container">
+      <div class="row">
+        <div class="alert alert-success"><%=notice%></div>
+      </div>
+    </div>
+    <%end%>
+    <% if flash[:alert] %>
+    <div class="container">
+      <div class="row">
+        <div class="alert alert-danger"><%= alert %></div>
+      </div>
+    </div>
+    <%end%>
     <%= yield %>
   </body>
 </html>
