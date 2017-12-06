@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "restaurants#index"
 
   namespace :admin do 
+    resources :categories
     resources :restaurants
     root "restaurants#index"
 
