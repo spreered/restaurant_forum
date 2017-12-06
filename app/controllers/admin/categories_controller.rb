@@ -4,7 +4,11 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @category = Category.new
+    if params[:id]
+      @category = Category.find(params[:id])
+    else
+      @category = Category.new
+    end
   end
   def create
     @category = Category.new(category_params)
@@ -15,6 +19,16 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      redirect_to admin_categories_path
+      flash[:notice] = "category is successfully updated"
+    else
+      @categories = Category.all
+      render :index
+    end
+  end
 
 
   private

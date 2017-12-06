@@ -19,13 +19,15 @@
           <tr>
             <th>#</th>
             <th>Category Name</th>
+            <th>edit</th>
           </tr>
         </thead>
         <tbody>
           <% @categories.each do |category| %>
           <tr>
             <th><%= category.id %></th>
-            <td><%= category.name %></td>            
+            <td><%= category.name %></td>  
+            <td><%=link_to 'edit', admin_categories_path(id: category.id)%></td> 
           </tr>
           <%end%>
         </tbody>
