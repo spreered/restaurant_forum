@@ -3,7 +3,15 @@
   <div>
   <%= link_to 'Restaurant', admin_restaurants_path %> |
   <%= link_to 'Categories', admin_categories_path %>
-</div>
+  </div>
+  <div class="form-inline">
+    <%= form_for [:admin, @category] do |f| %>
+      <div class="form-group">
+        <%= f.text_field :name, placeholder:"Category Name", class: "form-control" %>
+      </div>
+      <%= f.submit class: "btn btn-primary" %>
+    <%end%>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <table class="table table-striped table-bordered">

@@ -4,16 +4,21 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @category = Category.new
   end
-
-
-  private
-  
-  def authenticate_admin
-    unless current_user.admin?
-     flash[:alert] = "Not allow"
-     redirect_to root_path
+  def create
+    @category = Category.new(category_params)
+    if @category.save 
+      redirect_to admin_categories_path
+    else
+      render :index
     end
   end
 
+
+
+  private
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end
