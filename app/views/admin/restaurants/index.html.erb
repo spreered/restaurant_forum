@@ -26,7 +26,12 @@
           <% @restaurants.each do |restaurant| %>
           <tr>
             <th scope="row"><%= restaurant.id %></th>
-            <th>[<%= restaurant.category.name %>]</th>
+            <th>
+              <% if restaurant.category %>
+              [<%= restaurant.category.name %>]
+              <% else %>
+              <%end%>
+            </th>
             <td><%= restaurant.name %></td>
             <td>
               <%= link_to 'Show', admin_restaurant_path(restaurant) %>
