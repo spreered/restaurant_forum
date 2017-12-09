@@ -1,6 +1,16 @@
 
 <div class="container">
   <div class="row">
+    <div class="category-nav">
+      <ul class="nav nav-pills nav-pills-center">
+        <li class="active" role="presentation"><%= link_to '全部餐廳', restaurants_path%></li>
+        <% @categories.each do |category| %>
+        <li role="presentation"><%=link_to category.name, category_path(category) %></li>
+        <%end%>
+      </ul> 
+    </div>
+  </div>
+  <div class="row">
     <% @restaurants.each do |restaurant| %>
     <div class="col-md-4">
       <div class="restaurant-item">

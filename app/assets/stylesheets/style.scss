@@ -34,3 +34,13 @@
   overflow: hidden;
 
 }
+.nav-pills-center{
+  text-align: center;
+}
+.nav-pills-center > li{
+  float: none;
+  display: inline-block;
+}
+.category-nav{
+  margin: 10px 0;
+}
