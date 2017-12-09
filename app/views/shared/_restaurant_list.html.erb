@@ -1,0 +1,21 @@
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+    <div class="col-md-4">
+      <div class="restaurant-item">
+        <div class="imabox">
+          <div class="imgbox-inner">
+            <div class="image" style="background-image:url('<%=restaurant.image%>')"></div>
+<!--             <%= image_tag restaurant.image , class: "img-responsive center-block" %> -->
+          </div>
+        </div>
+        
+        <div class="caption">
+          <h3><%=link_to restaurant.name , restaurant_path(restaurant)%></h3>
+          <span class="label label-default"><%= restaurant.category.name %> </span>
+          <p class="restaurant-description"> <%= truncate restaurant.description, length:80 %></p> 
+        </div>
+
+      </div>
+    </div>
+    <%end%>
+  </div>
