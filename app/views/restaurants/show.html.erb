@@ -35,5 +35,17 @@
         <%= f.button "Cancel", type: :reset, class: "btn btn-default"%>
       </div>
     <%end%>
+    <hr>
   </div>
+  <!-- 顯示餐廳評論 -->
+  <% @restaurant.comments.each do |comment| %>
+  <div>
+    <h4><%=comment.user.email.split("@")[0]%></h4>
+    <p><%= simple_format comment.content %></p>
+    <p class="test-muted">
+      <em><%= time_ago_in_words(comment.created_at) + " ago"%></em>
+    </p>
+  </div>
+  <hr>
+  <%end%>
 </div>
