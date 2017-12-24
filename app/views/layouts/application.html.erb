@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RestaurantForumProj1</title>
+    <title>RestaurantForumProj</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -30,6 +31,7 @@
                 <li><%=link_to "餐廳後台", admin_restaurants_path %></li>
               <%end %>
               <li> <p class="navbar-text">Hi, <%=current_user.email%></p></li>
+              <li> <%= link_to 'Profile', user_path(current_user) %></li>
               <li> <%=link_to '登出', destroy_user_session_path, method: :delete %></li>
               <li> <%=link_to '修改密碼', edit_user_registration_path %> </li>
             <% else %>

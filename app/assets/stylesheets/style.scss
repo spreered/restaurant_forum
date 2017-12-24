@@ -44,3 +44,34 @@
 .category-nav{
   margin: 10px 0;
 }
+/* user show*/
+.user-content{
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.user-avatar .imgbox .imgbox-inner{
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+
+}
+.user-avatar{
+/* padding: 10px; */
+  border: 1px solid #a1a1a1;
+  text-overflow: ellipsis;
+}
+.user-email{
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+
+
+/* utility */
+.u-padding-top-40px{
+  padding-top: 40px;
+}
+.u-padding-top-10px{
+  padding-top: 10px;
+}
