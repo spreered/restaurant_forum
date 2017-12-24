@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Edit Profile </h1>
+  <div class="row">
+    <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%=f.label :name, "Name"%>
+        <%=f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%=f.label :intro, "自我介紹"%>
+        <%=f.text_area :intro, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%=f.label :avatar, "我的照片"%>
+        <%=image_tag @user.avatar, width:'300px' if @user.avatar? %>
+        <%=f.file_field :avatar %>
+      </div>
+      <div class="form-group">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
