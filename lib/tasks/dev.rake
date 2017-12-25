@@ -40,4 +40,17 @@ namespace :dev do
 
     puts "create fake comments"
   end
+
+  task fake_name: :environment do 
+    # create fake name if name is nil
+    users = User.all
+    users.each do |user|
+      if user.name == nil
+        user.update_attribute(:name,FFaker::Name.name)
+      end
+    end
+
+    puts "create fake name of each user"
+  end
+
 end
