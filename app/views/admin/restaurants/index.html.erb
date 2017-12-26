@@ -27,10 +27,11 @@
           <tr>
             <th scope="row"><%= restaurant.id %></th>
             <th>
-              <% if restaurant.category %>
+<!--               <% if restaurant.category %>
               [<%= restaurant.category.name %>]
               <% else %>
-              <%end%>
+              <%end%> -->
+              [<%=restaurant.category_name ? restaurant.category_name : "未分類" %>]
             </th>
             <td><%= restaurant.name %></td>
             <td>
