@@ -9,7 +9,8 @@
               <div class="image" style="background-image:url('<%= asset_path("default_avatar.jpg") %>')">
               </div>
             <%else%>
-              <div class="image" style="background-image:url('<%=@user.avatar%>')"></div>
+              <div class="image" style="background-image:url('<%=@user.avatar%>')">
+              </div>
             <%end%>
           </div>
         </div>
@@ -18,12 +19,28 @@
     <div class="col-md-8">
       <div class="user-content">
       <h2><%=@user.name %></h2>
-      <div class="user-email "> <%=@user.email %></div>
-      <div class="user-info u-padding-top-10px"><%=simple_format @user.intro %></div>
+        <div class="user-email "> <%=@user.email %></div>
+        <div class="user-info u-padding-top-10px"><%=simple_format @user.intro %></div>
       </div>
       <%if @user == current_user %>
       <%= link_to 'Edit Profile', edit_user_path(@user), class:"btn btn-primary" %>
       <%end%>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <!-- display restaurant that commented -->
+    <div class="col-md-12"> 
+      <p><%= @commented_restaurants.length %> 個已評論的餐廳：</p>
+      <ul>
+        <% @commented_restaurants.each do |restaurant| %>
+        <li> <%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+        <%end%>
+      </ul>
+      
+  
+    </div>
+
+
+  </div>  
 </div>
