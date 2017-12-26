@@ -31,12 +31,25 @@
   <div class="row">
     <!-- display restaurant that commented -->
     <div class="col-md-12"> 
-      <p><%= @commented_restaurants.length %> 個已評論的餐廳：</p>
-      <ul>
-        <% @commented_restaurants.each do |restaurant| %>
-        <li> <%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title"> <%= @commented_restaurants.length %> 個已評論的餐廳</h3></div>
+        <div class="panel-body">
+          <% @commented_restaurants.each do |restaurant| %>
+            <%=link_to restaurant_path(restaurant) do %>
+              <div class="my-restaurant">
+                <%=image_tag restaurant.image, class:"my-restaurant-img img-responsive center-block img-rounded" %>
+                <p class="my-restaurant-name text-center"><%=restaurant.name%></p>
+              </div>
+            <%end%>
         <%end%>
-      </ul>
+        <div class="clear-fix"></div>
+        </div>
+
+
+      </div>
+      <p></p>
+
+
       
   
     </div>
