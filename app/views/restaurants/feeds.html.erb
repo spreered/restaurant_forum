@@ -1,0 +1,45 @@
+<div class="container">
+
+  <ul class="nav nav-tabs">
+    <li role="presentation"> <%= link_to "首頁", restaurants_path %></li>
+    <li role="presentation" class="active"><a href="#">最新動態</a></li>
+  </ul>
+  <h1>餐廳最新動態</h1>
+  <div class="col-md-6 ">
+
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">最新餐廳</div>
+      </div>
+      <div class="panel-body">
+        <% @recent_restaurants.each do |restaurant| %>
+          <h4>
+            <%=link_to restaurant.name, restaurant_path(restaurant)%>
+            <small><%=restaurant.category_name%> </small>
+          </h4>
+          <p> <%=restaurant.description%></p>
+          <hr>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">最新評論</div>
+      </div>
+      <div class="panel-body">
+        <% @recent_comments.each do |comment| %>
+        <h4><%=link_to comment.restaurant.name, restaurant_path(comment.restaurant) %></h4>
+        <p><%= comment.content %> - by <%= link_to comment.user.name, user_path(comment.user) %> </p>
+        <hr>
+        <%end%>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
