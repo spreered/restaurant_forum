@@ -4,5 +4,5 @@ class Restaurant < ApplicationRecord
   delegate :name,to: :category,prefix: true, allow_nil: true
 
   belongs_to :category , optional: true 
-  has_many :comments
+  has_many :comments , dependent: :destroy
 end
