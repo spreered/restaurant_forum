@@ -13,9 +13,12 @@ Rails.application.routes.draw do
     #瀏覽個別餐廳的Dashboard
     member do 
       get :dashboard
+      post :favorite
+      post :unfavorite
     end
-
+    
   end
+
   resources :users, only: [:show,:edit,:update]
 
   resources :categories, only: [:show]
