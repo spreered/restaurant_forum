@@ -13,6 +13,7 @@
           <h3><%=link_to restaurant.name , restaurant_path(restaurant)%></h3>
           <span class="label label-default"><%= restaurant.category_name ? restaurant.category_name : "未分類" %> </span>
           <p class="restaurant-description"> <%= truncate restaurant.description, length:80 %></p> 
+          <%= render partial: "shared/favorite", locals:{restaurant: restaurant } %>
         </div>
 
       </div>
