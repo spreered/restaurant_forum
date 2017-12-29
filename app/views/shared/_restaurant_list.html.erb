@@ -14,6 +14,7 @@
           <span class="label label-default"><%= restaurant.category_name ? restaurant.category_name : "未分類" %> </span>
           <p class="restaurant-description"> <%= truncate restaurant.description, length:80 %></p> 
           <%= render partial: "shared/favorite", locals:{restaurant: restaurant } %>
+          <%= render partial: "shared/like", locals:{restaurant:restaurant} %>
         </div>
 
       </div>
