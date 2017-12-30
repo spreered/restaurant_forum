@@ -17,4 +17,8 @@ class Restaurant < ApplicationRecord
   def is_liked?(user)
     self.liked_users.include?(user)
   end
+
+  def set_favorites_count
+    self.update_attributes(favorites_count: self.favorites.uniq.length) 
+  end
 end
