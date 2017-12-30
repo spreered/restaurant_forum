@@ -21,4 +21,11 @@ class Restaurant < ApplicationRecord
   def set_favorites_count
     self.update_attributes(favorites_count: self.favorites.uniq.length) 
   end
+
+  def self.set_all_favorites_count
+    restaurants = self.all
+    restaurants.each do |restaurant|
+      restaurant.update_attributes(favorites_count: restaurant.favorites.uniq.length) 
+    end
+  end
 end
