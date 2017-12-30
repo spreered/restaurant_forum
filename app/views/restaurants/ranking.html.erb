@@ -1,11 +1,40 @@
 <div class="container">
-  <div class="col-md-12">
-    <% @restaurants.each do |restaurant| %>
-     <div class="restaurant-rank-list">
-       <p><%= restaurant.name %> </p>
-       <p>收藏數：<%= restaurant.favorites_count %></p>
+  <ul class="nav nav-tabs">
+    <li role="presentation"><%= link_to "首頁", restaurants_path %></li>
+    <li role="presentation" ><%=link_to "最新動態", feeds_restaurants_path %>
+    </li>
+    <li role="presentation" class="active" >
+      <a>Top10 人氣餐廳</a>
+    </li>
+  </ul>
 
-     </div>
+  <h1>Top 10 人氣餐廳 <small>（收藏數最高）</small></h1>
+  <hr>
+  <div class="col-sm-12">
+    <% @restaurants.each do |restaurant| %>
+      <div class="row ranking-item">
+        <!-- restaurant image -->
+        <div class="col-sm-3 ">
+          <div class="ranking-img">
+            <div class="imgbox">
+              <div class="image-inner">
+                <div class="image" style="background-image:url('<%=restaurant.image%>')"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- restaurant content -->
+        <div class="col-md-9">
+          <div class="ranking-content">
+            <h3><%= restaurant.name %> <span class="label label-default">收藏數：<%= restaurant.favorites_count %></span></h3> 
+            <p><%=simple_format restaurant.description%></p>
+            <%= render partial: "shared/favorite", locals:{restaurant: restaurant} %>
+            <%= render partial: "shared/like", locals: {restaurant: restaurant} %>
+          </div>
+
+
+        </div>
+      </div>
     <%end%>
   </div>
 </div>

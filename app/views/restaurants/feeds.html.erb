@@ -2,7 +2,10 @@
 
   <ul class="nav nav-tabs">
     <li role="presentation"> <%= link_to "首頁", restaurants_path %></li>
-    <li role="presentation" class="active"><a href="#">最新動態</a></li>
+    <li role="presentation" class="active"><a>最新動態</a></li>
+    <li role="presentation">
+      <%=link_to "Top10 人氣餐廳", ranking_restaurants_path %>
+    </li>
   </ul>
   <h1>餐廳最新動態</h1>
   <div class="col-md-6 ">

@@ -28,4 +28,6 @@ class Restaurant < ApplicationRecord
       restaurant.update_attributes(favorites_count: restaurant.favorites.uniq.length) 
     end
   end
+  #使用class method計算，每次呼叫可能效能比較差
+  
 end
