@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="col-md-12">
+    <% @restaurants.each do |restaurant| %>
+     <div class="restaurant-rank-list">
+       <p><%= restaurant.name %> </p>
+       <p>收藏數：<%= restaurant.favorites_count %></p>
+
+     </div>
+    <%end%>
+  </div>
+</div>
