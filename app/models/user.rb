@@ -17,10 +17,15 @@ class User < ApplicationRecord
   def admin?
     self.role == "admin"
   end
+  
   def default_name
     if self.name==""
       self.name = self.email.split('@')[0]
     end
+  end
+
+  def following?(user)
+    self.followings.include?(user)
   end
 
 end
