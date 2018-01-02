@@ -65,6 +65,27 @@
   font-size: 16px;
 
 }
+/* user#index */
+.user-list-item{
+  padding: 0 30px 30px 30px;
+}
+.user-list-img{
+
+}
+.user-list-item>.imgbox>.imgbox-inner{
+  width: 100%;
+  padding-top: 100%;
+  position: relative
+}
+.user-list-item .image{
+  border-radius: 10px;
+}
+.user-list-info{
+  text-align: center;
+  padding-top: 20px;
+}
+
+
 .my-restaurant{
   box-sizing: border-box;
   max-width:200px;
@@ -90,6 +111,7 @@ p.my-restaurant-name{
 .ranking-img{
   min-height: 200px;
 }
+
 
 
 
