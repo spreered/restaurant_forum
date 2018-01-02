@@ -1,4 +1,16 @@
 <div class="container">
+  <ul class="nav nav-tabs">
+    <li role="presentation"><%= link_to "首頁", restaurants_path %></li>
+    <li role="presentation" ><%=link_to "最新動態", feeds_restaurants_path %>
+    </li>
+    <li role="presentation" >
+      <%=link_to "Top10 人氣餐廳", ranking_restaurants_path %>
+    </li>
+    <li role="presentation" class="active">
+      <a>美食達人</a>
+    </li>
+  </ul>
+
   <h1>美食達人</h1> 
   <hr>
   <div class="row">
