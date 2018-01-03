@@ -14,7 +14,14 @@
     <div class="col-md-8">
       <div class="user-content">
       <h2><%=@user.name %></h2>
-        <div class="user-email "> <%=@user.email %></div>
+        <div class="user-profile-email "> <%=@user.email %></div>
+        <div class="u-padding-top-10px user-profile-record">
+            <%= @commented_restaurants.length %> 個已評論的餐廳, 
+            <%=@favorited_restaurants.length %> 個收藏的餐廳, 
+            <%= @followings.length %> followings,
+            <%=@followers.length %> followers
+
+        </div>
         <div class="user-info u-padding-top-10px"><%=simple_format @user.intro %></div>
       </div>
       <%if @user == current_user %>
