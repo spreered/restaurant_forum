@@ -33,13 +33,18 @@
             <%= @followings.length %> followings
           </h3>
         </div>
-        <div class="panel-body">
-          <ul>
-            <%@followings.each do |following|%>
-              <li><%=link_to following.name %></li>
-            <%end%>
-          </ul>
-        </div>
+        <ul class="list-group">
+          <%@followings.each  do |following|%>
+              <li class="list-group-item">
+                <div class="user-follow-list">
+                  <%=image_tag following.avatar, class:"img-responsive img-circle" %>
+                  <div class="user-follow-list-name">
+                    <%=link_to following.name, user_path(following) %>
+                  </div>
+                </div>
+              </li>
+          <%end%>
+        </ul>
       </div>
       <!-- followings end -->
 
@@ -48,13 +53,18 @@
         <div class="panel-heading">
           <h3 class="panel-title"><%=@followers.length %> followers</h3>
         </div>
-        <div class="panel-body">
-          <ul>
-            <%@followers.each do |follower|%>
-              <li><%=link_to follower.name %></li>
-            <%end%>
-          </ul>
-        </div>
+        <ul class="list-group">
+          <%@followers.each  do |followers|%>
+              <li class="list-group-item">
+                <div class="user-follow-list">
+                  <%=image_tag followers.avatar, class:"img-responsive img-circle" %>
+                  <div class="user-follow-list-name">
+                    <%=link_to followers.name, user_path(followers) %>
+                  </div>
+                </div>
+              </li>
+          <%end%>
+        </ul>
       </div>
 
       <!-- followers end -->
@@ -83,19 +93,17 @@
       <!-- favorited_restaurants start -->
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">收藏的餐廳</h3>
+          <h3 class="panel-title"><%=@favorited_restaurants.length %> 個收藏的餐廳</h3>
         </div>
         <div class="panel-body">
-          <ul>
-            <% @favorited_restaurants.each do |favorite_restaurant|%>
-              <li>
-                <%= favorite_restaurant.name %>
-              </li>
+          <% @favorited_restaurants.each do |restaurant| %>
+            <%=link_to restaurant_path(restaurant) do %>
+              <div class="my-restaurant">
+                <%=image_tag restaurant.image, class:"my-restaurant-img img-responsive center-block img-rounded" %>
+                <p class="my-restaurant-name text-center"><%=restaurant.name%></p>
+              </div>
             <%end%>
-          </ul>
-          
-
-
+          <%end%>
         </div>
       </div>
       <!-- favorited_restaurants end -->
