@@ -11,13 +11,15 @@ class User < ApplicationRecord
   has_many :favorited_restaurants, through: :favorites, source: :restaurant
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
-  has_many :followships, dependent: :destroy
-  has_many :followings, through: :followships
+  has_many :followships, dependent: :destroy   #追蹤關係
+  has_many :followings, through: :followships  #追蹤對象
+  has_many :inverse_followships, class_name:"Followship", foreign_key: "following_id"  #反向的追蹤關係 fk設定following_id
+  has_many :followers ,through: :inverse_followships, source: :user
 
   def admin?
     self.role == "admin"
   end
-  
+
   def default_name
     if self.name==""
       self.name = self.email.split('@')[0]
