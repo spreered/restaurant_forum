@@ -28,8 +28,17 @@
     <div class="col-md-4">
       <!-- followings start -->
       <div class="panel panel-default">
-        <div class="panel-heading"><h3 class="panel-title">followings</h3></div>
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%= @followings.length %> followings
+          </h3>
+        </div>
         <div class="panel-body">
+          <ul>
+            <%@followings.each do |following|%>
+              <li><%=link_to following.name %></li>
+            <%end%>
+          </ul>
         </div>
       </div>
       <!-- followings end -->
@@ -37,16 +46,21 @@
       <!-- followers start -->
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">followers</h3>
+          <h3 class="panel-title"><%=@followers.length %> followers</h3>
         </div>
         <div class="panel-body">
+          <ul>
+            <%@followers.each do |follower|%>
+              <li><%=link_to follower.name %></li>
+            <%end%>
+          </ul>
         </div>
       </div>
 
       <!-- followers end -->
     </div>
     <!-- left panel end -->
-
+    
     <!-- right panel -->
     <div class="col-md-8"> 
       <!-- commented_restaurants start-->
@@ -72,6 +86,16 @@
           <h3 class="panel-title">收藏的餐廳</h3>
         </div>
         <div class="panel-body">
+          <ul>
+            <% @favorited_restaurants.each do |favorite_restaurant|%>
+              <li>
+                <%= favorite_restaurant.name %>
+              </li>
+            <%end%>
+          </ul>
+          
+
+
         </div>
       </div>
       <!-- favorited_restaurants end -->
