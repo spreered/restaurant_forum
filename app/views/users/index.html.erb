@@ -25,6 +25,7 @@
           <div class="user-list-info">
             <p><%=link_to user.name, user_path(user)%></p>
             <%= render partial: "shared/follow",locals:{user: user} %>
+            <%= render partial: "shared/addfriend",locals:{user: user} %>
           </div>
         </div>
       </div>
