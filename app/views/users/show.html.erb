@@ -5,13 +5,6 @@
       <div class="user-avatar">
         <div class="imgbox">
           <div class="imgbox-inner">
-<!--             <%if !@user.avatar? %>
-              <div class="image" style="background-image:url('<%= asset_path("default_avatar.jpg") %>')">
-              </div>
-            <%else%>
-              <div class="image" style="background-image:url('<%=@user.avatar%>')">
-              </div>
-            <%end%> -->
               <div class="image" style="background-image:url('<%=@user.avatar%>')">
               </div>
           </div>
@@ -31,8 +24,32 @@
   </div>
   <hr>
   <div class="row">
-    <!-- display restaurant that commented -->
-    <div class="col-md-12"> 
+    <!-- left panel -->
+    <div class="col-md-4">
+      <!-- followings start -->
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">followings</h3></div>
+        <div class="panel-body">
+        </div>
+      </div>
+      <!-- followings end -->
+
+      <!-- followers start -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">followers</h3>
+        </div>
+        <div class="panel-body">
+        </div>
+      </div>
+
+      <!-- followers end -->
+    </div>
+    <!-- left panel end -->
+
+    <!-- right panel -->
+    <div class="col-md-8"> 
+      <!-- commented_restaurants start-->
       <div class="panel panel-default">
         <div class="panel-heading"><h3 class="panel-title"> <%= @commented_restaurants.length %> 個已評論的餐廳</h3></div>
         <div class="panel-body">
@@ -46,15 +63,20 @@
         <%end%>
         <div class="clear-fix"></div>
         </div>
-
-
       </div>
-      <p></p>
+      <!-- commented_restaurants end -->
 
-
-      
-  
+      <!-- favorited_restaurants start -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">收藏的餐廳</h3>
+        </div>
+        <div class="panel-body">
+        </div>
+      </div>
+      <!-- favorited_restaurants end -->
     </div>
+   <!-- right panel end -->
 
 
   </div>  
