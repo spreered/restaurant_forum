@@ -20,7 +20,6 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name:"Friendship", foreign_key: "addfriend_id"  #反向的交友關係 fk為addfriend_id
   has_many :friendrequests, through: :inverse_friendships, source: :user #加我好友的人
 
-
   def admin?
     self.role == "admin"
   end

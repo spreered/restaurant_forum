@@ -34,16 +34,18 @@
       <%=render partial: "shared/user_list", locals:{users: @all_friends} %>
     </div>
   </div>
+  <% if @user == current_user %>
   <div class="row">
-    <h1><%=@user.name%> 送出邀請</h1>
+    <h1>送出邀請中的名單</h1>
     <div class="row u-padding-top-40px">
       <%=render partial: "shared/user_list", locals:{users: @addfriends} %>
     </div>
   </div>
   <div class="row">
-    <h1><%=@user.name%> 被邀請</h1>
+    <h1>邀請你成為好友</h1>
     <div class="row u-padding-top-40px">
       <%=render partial: "shared/user_list", locals:{users: @friendrequests} %>
     </div>
   </div>
+  <%end%>
 </div>
