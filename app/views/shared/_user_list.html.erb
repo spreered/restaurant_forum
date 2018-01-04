@@ -1,0 +1,16 @@
+<%users.each do |user| %>
+  <div class="col-sm-3">
+    <div class="user-list-item">
+      <div class="imgbox">
+        <div class="imgbox-inner">
+          <div class="image" style="background-image:url('<%=user.avatar%>')"></div>
+        </div>
+      </div>
+      <div class="user-list-info">
+        <p><%=link_to user.name, user_path(user)%></p>
+        <%= render partial: "shared/follow",locals:{user: user} %>
+        <%= render partial: "shared/addfriend",locals:{user: user} %>
+      </div>
+    </div>
+  </div>
+<%end%>
