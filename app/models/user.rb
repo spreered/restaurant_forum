@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name:"Friendship", foreign_key: "addfriend_id"  #反向的交友關係 fk為addfriend_id
   has_many :friendrequests, through: :inverse_friendships, source: :user #加我好友的人
 
+
   def admin?
     self.role == "admin"
   end
@@ -47,5 +48,11 @@ class User < ApplicationRecord
     friends = friends.uniq
     return friends
   end
-
+  def friends_list
+    list = []
+    self.addfriends.each do |addfriend|
+      list<<addfriend if self.friendrequests.include?(addfriend)
+    end
+    return list
+  end 
 end

@@ -24,7 +24,10 @@ class UsersController < ApplicationController
 
   def friend_list
     @user = User.find(params[:id])
-    @all_friends = @user.all_friends
+    # @all_friends = @user.all_friends
+    @all_friends = @user.friends_list
+    @addfriends = @user.addfriends
+    @friendrequests = @user.friendrequests
   end
 
   private 
