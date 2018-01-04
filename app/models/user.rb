@@ -39,8 +39,11 @@ class User < ApplicationRecord
   end
 
   def all_friends
-    friends = self.addfriends
-    friends << self.friendrequests
+    friends = []
+    #要先new 一個array出來，直接assign可能會覆寫到原陣列
+    friends.concat(self.addfriends)
+    #陣列串連不能用push 或 << 
+    friends.concat(self.friendrequests)
     friends = friends.uniq
     return friends
   end
