@@ -14,7 +14,15 @@
     <div class="col-md-8">
       <div class="user-content">
       <h2><%=@user.name %></h2>
-        <div class="user-profile-email "> <%=@user.email %></div>
+        <div class="user-profile-email "> 
+          <%=@user.email %>
+          <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a>關於</a></li>
+            <li role="presentation">
+              <%=link_to "朋友", friend_list_user_path(@user)%>              
+            </li>
+          </ul>
+        </div>
         <div class="u-padding-top-10px user-profile-record">
             <%= @commented_restaurants.length %> 個已評論的餐廳, 
             <%=@favorited_restaurants.length %> 個收藏的餐廳, 
@@ -25,7 +33,7 @@
         <div class="user-info u-padding-top-10px"><%=simple_format @user.intro %></div>
       </div>
       <%if @user == current_user %>
-      <%= link_to 'Edit Profile', edit_user_path(@user), class:"btn btn-primary" %>
+      <%= link_to 'Edit Profile', edit_user_path(@user), class:"btn btn-default" %>
       <%end%>
     </div>
   </div>

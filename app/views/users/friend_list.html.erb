@@ -1,13 +1,37 @@
 <div class="container">
-  <h1><%=@user.name%> 和他的好友們</h1>
-  <ul>
-    <% @all_friends.each do |friend| %>
-    <li>
-      <%= link_to friend.name ,user_path(friend) %>
-    </li>
-    <%end%>
-  </ul>
-
-
-
+  <div class="row u-padding-top-40px">
+    <!-- avatar -->
+    <div class="col-md-4">
+      <div class="user-avatar">
+        <div class="imgbox">
+          <div class="imgbox-inner">
+              <div class="image" style="background-image:url('<%=@user.avatar%>')">
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="user-content">
+      <h2><%=@user.name %></h2>
+        <div class="user-profile-email "> 
+          <%=@user.email %>
+          <ul class="nav nav-pills">
+            <li role="presentation" >
+              <%=link_to "關於", user_path(@user)%></li>
+            <li role="presentation" class="active">
+              <a>朋友</a>            
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <h1><%=@user.name%> 和他的好友們</h1>
+    <div class="row u-padding-top-40px">
+      <%=render partial: "shared/user_list", locals:{users: @all_friends} %>
+    </div>
+  </div>
 </div>
