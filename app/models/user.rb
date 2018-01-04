@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :followers ,through: :inverse_followships, source: :user
   has_many :friendships, dependent: :destroy #交友關係
   has_many :addfriends, through: :friendships #加入好友
+  has_many :inverse_friendships, class_name:"Freindship", foreign_key: "addfriend_id"  #反向的交友關係 fk為addfriend_id
+  has_many :friendrequests, through: :inverse_friendships, source: :user #加我好友的人
 
   def admin?
     self.role == "admin"
@@ -35,5 +37,6 @@ class User < ApplicationRecord
   def addfriend?(user)
     self.addfriends.include?(user)
   end
+
 
 end
