@@ -25,9 +25,11 @@ class UsersController < ApplicationController
   def friend_list
     @user = User.find(params[:id])
     # @all_friends = @user.all_friends
-    @all_friends = @user.friends_list
-    @addfriends = @user.addfriends
-    @friendrequests = @user.friendrequests
+    @friends_list = @user.friends_list
+    @sendrequests = @user.addfriends - @friends_list
+    #去除已經加入好友的名單
+    @getrequests = @user.friendrequests - @friends_list
+    #去除已經加入好友的名單
   end
 
   private 
