@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def friend_list
+    @user = User.find(params[:id])
+    @all_friends = @user.all_friends
+  end
+
   private 
   def user_params
     params.require(:user).permit(:name,:intro,:avatar)
